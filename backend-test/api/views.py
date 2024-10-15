@@ -1,12 +1,16 @@
 import logging
 
+from .models import Event
+
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import viewsets
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .serializers import UserLoginSerializer, UserRegisterSerializer, UserActionLogSerializer,EventUserRegisterSerializer, CommentRegisterSerializer
+from .serializers import EventSerializer
 
 logger = logging.getLogger('user_actions')
 
@@ -107,3 +111,29 @@ class CommentAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         
+class EventAPIView(APIView):
+# class EventAPIView(viewsets.ModelViewSet):
+
+    print("////////")
+    queryset = Event.objects.all()
+    
+    def get(self, request, format=None):
+        print("////////")
+        serializer =  EventSerializer(Event.objects.all(), many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    
+class EventApiViewDetail(APIView):
+    
+    def get_object(self, pk):
+        print("get_object", self, pk)
+        try:
+            return Event.objects.get(pk=pk)
+        except Event.DoesNotExist:
+            return None
+        
+    def get(self, request):
+        id= request.data.get("id")
+        event = self.get_object(id)
+        serializer = EventSerializer(event)  
+        return Response(status=status.HTTP_200_OK, data=serializer.data)

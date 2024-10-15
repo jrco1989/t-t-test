@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
-from .models import User, UserActionLog, EventUser, Comment
+from .models import User, UserActionLog, EventUser, Comment, Event
 
 class UserLoginSerializer(serializers.Serializer):
     cedula = serializers.CharField()
@@ -69,3 +69,9 @@ class CommentRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ["user","event","text"]
+
+class EventSerializer(serializers.ModelSerializer):
+    print("$$$$$$$$$")
+    class Meta:
+        model = Event
+        fields = "__all__"
