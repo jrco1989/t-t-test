@@ -68,7 +68,7 @@ class CommentRegisterSerializer(serializers.ModelSerializer):
     print("#########")
     class Meta:
         model = Comment
-        fields = ["user","event","text"]
+        fields = ["user","event","text", "created"]
 
 class EventSerializer(serializers.ModelSerializer):
     print("$$$$$$$$$")

@@ -1,6 +1,6 @@
 import logging
 
-from .models import Event
+from .models import Event, EventUser,Comment
 
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -74,11 +74,20 @@ class UserActionLogCreateAPIView(APIView):
     
 class EventUserAPIView(APIView):
     permission_classes = [IsAuthenticated]
-    print("tttttttttttt")
+    
+    def get(self, request, format=None):
+        print("get events")
+        print(request.query_params)
+        print(request.data)
+        id= request.query_params.get("user", )
+        print("requestyyyy",id)
 
+        serializer =  EventUserRegisterSerializer(EventUser.objects.filter(user=id), many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        
     def post(self, request):
         print(request.data)
-        print("request")
+        print("requestyyyy")
 
         serializer = EventUserRegisterSerializer(data=request.data, context={'request': request})
         print("3")
@@ -97,7 +106,19 @@ class EventUserAPIView(APIView):
 class CommentAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
+    def get(self, request, format=None):
+        
+        id= request.query_params.get("event", )
+        print("requestyyyy",id)
+
+        serializer =  CommentRegisterSerializer(Comment.objects.filter(event=id), many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        
     def post(self, request):
+        print("get events")
+        print(request.query_params)
+        print(request.data)
+        
         serializer = CommentRegisterSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             user = request.user if request.user.is_authenticated else None
