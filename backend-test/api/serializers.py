@@ -12,7 +12,7 @@ class UserLoginSerializer(serializers.Serializer):
             try:
                 user = User.objects.get(cedula=cedula)
             except User.DoesNotExist:
-                msg = "El código no se encuentra registrado."
+                msg = "La cédula no se encuentra registrado."
                 raise serializers.ValidationError(msg, code="authorization")
             if user.is_active:
                 user = authenticate(request=self.context.get("request"), username=cedula, password=cedula)
