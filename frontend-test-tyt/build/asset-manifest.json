@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a0e79b0f.css",
+    "main.js": "/static/js/main.fde64d1f.js",
+    "static/js/453.4182e398.chunk.js": "/static/js/453.4182e398.chunk.js",
+    "static/media/firstbackground.jpg": "/static/media/firstbackground.d7a5c527d13e92818b7e.jpg",
+    "static/media/BebasNeueBook.otf": "/static/media/BebasNeueBook.1b81ed50e9e249ab5ec5.otf",
+    "static/media/BebasNeueBold.otf": "/static/media/BebasNeueBold.a20da9a8676904a41a73.otf",
+    "static/media/secondbackground.jpg": "/static/media/secondbackground.8ad7bf19b59d81d8d805.jpg",
+    "static/media/BebasNeue.otf": "/static/media/BebasNeue.2f99e8e59eadc04454dc.otf",
+    "static/media/Headerbackground.jpg": "/static/media/Headerbackground.3efc5fd9fb010e942aff.jpg",
+    "index.html": "/index.html",
+    "main.a0e79b0f.css.map": "/static/css/main.a0e79b0f.css.map",
+    "main.fde64d1f.js.map": "/static/js/main.fde64d1f.js.map",
+    "453.4182e398.chunk.js.map": "/static/js/453.4182e398.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0e79b0f.css",
+    "static/js/main.fde64d1f.js"
+  ]
+}
