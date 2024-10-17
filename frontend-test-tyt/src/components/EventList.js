@@ -31,9 +31,17 @@ const EventList = () => {
     if(token){
     const responseUserEvents = await getUserEvents()
     const response = await getEvents(token)
+    console.log("Retrasado por 1 segundo.", response);
     
-    console.log("Retrasado por 1 segundo.", response, responseUserEvents);
-    setEvents(response);
+    const responseMod = response.map(usuario => {
+      const url = usuario.imagen.replace('/media/','')
+      const url2 = url.replace('%3A',':/')
+      const url_vid = usuario.video.replace('/media/','')
+      const url_vid2 = url_vid.replace('%3A',':/')
+      return { ...usuario, imagen: url2, video:url_vid2 };
+    });
+    console.log(".responseMod", responseMod, responseUserEvents);
+    setEvents(responseMod);
     const id_event = responseUserEvents.map(id=>id.event) 
     setUserEvents(id_event)
 
@@ -115,14 +123,26 @@ const EventList = () => {
              <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
                   <img
                     alt={"Sin imagen"}
-                    src={`${"http://127.0.0.1:8000/"}${infoEvent.imagen}`} 
+                    src={infoEvent.imagen} 
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
                   <p className="text-1  xl text-gray-900 ">{infoEvent.description}</p>
 
             
-          </div>
+          </div>  
+    <div className="flex justify-center items-center my-4">
+            <iframe
+                className="w-full max-w-2xl rounded-lg shadow-lg"
+                width="560"
+                height="315"
+                src={infoEvent.video}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+            ></iframe>
+        </div>
           <button
       onClick={() => handleInscription(infoEvent.id)}
       style={{ backgroundColor: buttonColor, color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px' }}
@@ -193,8 +213,8 @@ const EventList = () => {
               <div key={event.name} className="group relative">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
                   <img
-                    alt={"Sin imagen"}
-                    src={`${"http://127.0.0.1:8000/"}${event.imagen}`} 
+                    alt={"Sin imageen"}
+                    src={event.imagen} 
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
