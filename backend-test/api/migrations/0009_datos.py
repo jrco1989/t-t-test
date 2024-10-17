@@ -9,19 +9,7 @@ def create_initial_data(apps, schema_editor):
     MyModel.objects.create(name='Concierto Movistar', description='''Stiven Mesa Londoño también es El Bendito o como todos lo conocemos: Blessed. El cantante antioqueño es la nueva joya del perreo colombiano. “Hecho en Medellín”, “Siempre Blessed” y “SI SABE” son los tres discos, que en tres años, han forjado una efervescente carrera que ahora lo llevará, en vivo a la Arena Movistar 
                            en una segunda fecha este 19 de octubre.''',imagen='https://movistararena.co/wp-content/uploads/2024/09/borrador-automatico-418.jpg',
                            video='https://www.youtube.com/watch?v=zcw8NlHljF4')
-    MyModel.objects.create(name='Festival de Cine', description='''El Festival Internacional de Cine de Cartagena – FICCI es un evento cinematográfico gratuito y con vocación social que, anualmente, lee las circunstancias del país y el mundo para desarrollar un encuentro cultural que se resiste a la pretensión de exclusividad y se plantea, en cambio, de una manera inclusiva, plural y de miradas relevantes para el crecimiento del ser humano, la protección de la libre expresión y la potenciación de la cultura como elemento 
-                           fundamental en la construcción de democracia y sociedades progresistas e incluyentes.
-
-    Fundado en 1960, El FICCI, es el festival de cine más antiguo de América Latina. A lo largo de su historia se ha caracterizado por acoger y promover el riesgo y 
-    la renovación de la dramaturgia y la caligrafía cinematográfica de Iberoamérica y el mundo.''',
-    imagen='https://www.google.com/imgres?q=festival%20de%20cine&imgurl=https%3A%2F%2Fwww.elcorteingles.es%2Fentradas%2Fblog%2Fwp-content%2Fuploads%2F2020%2F09%2FFestivales-y-eventos-de-cine-que-no-te-puedes-perder.jpg&imgrefurl=https%3A%2F%2Fwww.elcorteingles.es%2Fentradas%2Fblog%2Ffestivales-eventos-cine-imprescindibles%2F&docid=ZKXcXdf-F_x5-M&tbnid=M-oAN_6T1-4boM&vet=12ahUKEwjW6oermZaJAxUmRTABHbveFhwQM3oECBUQAA..i&w=1519&h=782&hcb=2&ved=2ahUKEwjW6oermZaJAxUmRTABHbveFhwQM3oECBUQAA',
-    video='https://www.youtube.com/watch?v=2evOCa2-3Mk')
     
-    MyModel.objects.create(name='Festival de Teatro', description='''Stiven Mesa Londoño también es El Bendito o como todos lo conocemos: Blessed. El cantante antioqueño es la nueva joya del perreo colombiano. “Hecho en Medellín”, “Siempre Blessed” y “SI SABE” son los tres discos, que en tres años, han forjado una efervescente carrera que ahora lo llevará, en vivo a la Arena Movistar 
-                        en una segunda fecha este 19 de octubre.''',
-    imagen='https://www.google.com/imgres?q=festival%20de%20teatro&imgurl=https%3A%2F%2Fbogota.gov.co%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1050px%2Fpublic%2Feventos%2F2024-07%2Ffestivaldeteatroycirco2024.png&imgrefurl=https%3A%2F%2Fbogota.gov.co%2Fque-hacer%2Fcultura%2Ffestival-de-teatro-y-circo-de-bogota-2024&docid=WNUSs_0_HeyrtM&tbnid=y_mFctbokN4JvM&vet=12ahUKEwjeqauCmpaJAxXHQjABHdcRHkoQM3oECGUQAA..i&w=1050&h=551&hcb=2&ved=2ahUKEwjeqauCmpaJAxXHQjABHdcRHkoQM3oECGUQAA',
-    video='https://www.youtube.com/watch?v=ebRqB9ookH8'
-    )
 class Migration(migrations.Migration):
 
     initial = True

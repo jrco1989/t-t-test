@@ -101,7 +101,7 @@ class UserActionLog(models.Model):
 class Event(models.Model):
 
     name = models.CharField(
-        max_length = 100,
+        max_length = 1000,
         verbose_name= 'Nombre'
     )
 
